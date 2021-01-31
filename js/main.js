@@ -7,7 +7,7 @@ const maxLengthString = function (checkedString, maxLength) {
   if (checkedString.length <= maxLength) {
     return true;
   } else {
-    alert('ОШИБКА - Превышено максимальное количество символов');
+    return false;
   }
 };
 
