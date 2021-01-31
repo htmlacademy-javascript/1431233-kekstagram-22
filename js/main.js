@@ -10,3 +10,7 @@ const maxLengthString = function (checkedString, maxLength) {
     alert('ОШИБКА - Превышено максимальное количество символов');
   }
 };
+
+// Присвоил значение что бы не ругалось
+getRandomNumber(1 , 3);
+maxLengthString('test', 5);
