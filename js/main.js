@@ -9,4 +9,4 @@ const checkMaxLengthString = function (checkedString, maxLength) {
 
 // Присвоил значение что бы не ругалось
 getRandomNumber(1 , 3);
-maxLengthString('test', 5);
+checkMaxLengthString('test', 5);
