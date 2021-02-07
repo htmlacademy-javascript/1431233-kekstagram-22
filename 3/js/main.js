@@ -1,11 +1,3 @@
-// Функция, возвращающая случайное целое число из переданного диапазона включительно.
-const getRandomNumber = function(min, max) {
-  return Math.floor(min + Math.random() * (max + 1 - min));
-};
-// Функция для проверки максимальной длины строки.
-const checkMaxLengthString = function (checkedString, maxLength) {
-  return checkedString.length <= maxLength;
-};
 // Массив сообщений для комментариев
 const MESSAGES = [
   'Все отлично',
@@ -27,36 +19,43 @@ const NAMES = [
   'Сергей',
   'Анатолий',
   'Леонид',
-  'Анатолий',
 ];
 // ID комментраиев
 let idComment = 0;
+// Функция, возвращающая случайное целое число из переданного диапазона включительно.
+const getRandomNumber = function(min, max) {
+  return Math.floor(min + Math.random() * (max + 1 - min));
+};
+// Функция для проверки максимальной длины строки.
+const checkMaxLengthString = function (checkedString, maxLength) {
+  return checkedString.length <= maxLength;
+};
 // Массив генерации комментария
 const generateArrayComments = function (amount) {
-  const COMMENTS = [];
+  const comments = [];
   for (let i = 0; i < amount; i++) {
-    COMMENTS.push({
+    comments.push({
       id: Math.round((new Date).getTime()) + (idComment += 1),
       avatar: 'img/avatar-' + getRandomNumber(1 , 6) + '.svg',
       message: MESSAGES[getRandomNumber(1 , MESSAGES.length - 1)],
       name: NAMES[getRandomNumber(1 , NAMES.length - 1)],
     });
   }
-  return COMMENTS;
+  return comments;
 }
 // Массив генерации постов
 const generateArrayPosts = function (amountPosts) {
-  const POSTS = [];
+  const posts = [];
   for (let i = 0; i < amountPosts; i++) {
-    POSTS.push({
-      id: POSTS.length + 1,
-      url: 'photos/' + (POSTS.length + 1) + '.jpg',
+    posts.push({
+      id: posts.length + 1,
+      url: 'photos/' + (posts.length + 1) + '.jpg',
       description: 'Описание фотографии',
       likes: getRandomNumber(15, 200),
       comment: generateArrayComments(getRandomNumber(1, 10)),
     });
   }
-  return POSTS;
+  return posts;
 }
 
 // Присвоил значение что бы не ругалось
