@@ -1,4 +1,4 @@
-import {getRandomNumber, creationArrayRandom} from './util.js';
+import {getRandomNumber, createRandomArray} from './util.js';
 // Массив сообщений для комментариев
 const MESSAGES = [
   'Все отлично',
@@ -24,10 +24,10 @@ const NAMES = [
 // ID комментраиев
 let idComment = 0;
 // Количество изображений(фото)
-let imageNumbers = creationArrayRandom(25, 25);
+let imageNumbers = createRandomArray(25, 25);
 // Массив генерации комментария
 const generateArrayComments = function () {
-  const photoComments = creationArrayRandom(getRandomNumber(1, 6), 7);
+  const photoComments = createRandomArray(getRandomNumber(1, 6), 7);
   const comments = [];
   for (let i = 0; i < photoComments.length; i++) {
     comments.push({
@@ -41,10 +41,8 @@ const generateArrayComments = function () {
 }
 //Массив генерации постов
 const generateArrayPosts = function (amountPosts) {
-  let photosComments = [];
   const posts = [];
   for (let i = 0; i < amountPosts; i++) {
-    photosComments[i] = generateArrayComments();
     posts.push({
       id: posts.length + 1,
       url: 'photos/' + imageNumbers[i] + '.jpg',

@@ -6,23 +6,16 @@ const getRandomNumber = function(min, max) {
 const checkMaxLengthString = function (checkedString, maxLength) {
   return checkedString.length <= maxLength;
 };
-// Функция создания массивов со случайными уникальными числами
-const creationArrayRandom = function (length, max) {
+// Функция создания массива со случайными уникальными числами
+const createRandomArray = function (length, max) {
   let arrayRandomNumber = [];
   while (arrayRandomNumber.length < length) {
     let randomNamber = getRandomNumber(1, max);
-    let found = false;
-    for (let i = 0; i < arrayRandomNumber.length; i++) {
-      if (arrayRandomNumber[i] === randomNamber) {
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
+    while (!arrayRandomNumber.includes(randomNamber)) {
       arrayRandomNumber[arrayRandomNumber.length] = randomNamber;
     }
   }
   return arrayRandomNumber;
 };
 // Экспорт функций (экспортировал checkMaxLengthString для того что бы не ругался линтер)
-export {getRandomNumber, checkMaxLengthString, creationArrayRandom};
+export {getRandomNumber, checkMaxLengthString, createRandomArray};

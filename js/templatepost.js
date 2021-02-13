@@ -1,6 +1,6 @@
 // Шаблон изображения случайного пользователя
 const postTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const setupPostList = document.querySelector('.pictures');
+const postList = document.querySelector('.pictures');
 const generatePostBlock = function (post) {
   let postElement = postTemplate.cloneNode(true);
   postElement.querySelector('.picture__img').src = post.url;
@@ -16,4 +16,4 @@ const generateGroupPosts = function (collection) {
   }
   return fragment;
 };
-export {setupPostList, generateGroupPosts};
+export {postTemplate, postList, generatePostBlock, generateGroupPosts};

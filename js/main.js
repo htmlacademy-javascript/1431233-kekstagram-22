@@ -1,5 +1,5 @@
 
-import {setupPostList, generateGroupPosts} from './templatepost.js';
+import {postList, generateGroupPosts} from './templatePost.js';
 import {generateArrayPosts} from './generation.js';
 
-setupPostList.appendChild(generateGroupPosts(generateArrayPosts(25)));
+postList.appendChild(generateGroupPosts(generateArrayPosts(25)));
