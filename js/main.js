@@ -14,7 +14,6 @@ import {
   effects,
   changeFilter
 } from './uploadingPhotos.js';
-
 // Формируем ленту
 postList.appendChild(generateGroupPosts(generateArrayPosts(25)));
 // Открытие и закрытия окна редактирования нового фото
