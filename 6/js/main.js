@@ -9,10 +9,8 @@ import {
   scaleControlBigger,
   onMinusScaleClick,
   onPlusScaleClick,
-  effectLevelPin,
-  effectsLevelMouseDown,
   effects,
-  changeFilter
+  changeFilterHandler
 } from './uploadingPhotos.js';
 // Формируем ленту
 postList.appendChild(generateGroupPosts(generateArrayPosts(25)));
@@ -27,7 +25,5 @@ uploadCancel.addEventListener('click', function () {
 scaleControlSmaller.addEventListener('click', onMinusScaleClick);
 // Увеличение изображение в редакторе
 scaleControlBigger.addEventListener('click', onPlusScaleClick);
-// Интенсивность эффекта
-effectLevelPin.addEventListener('mousedown', effectsLevelMouseDown);
-// Выбор эффекта
-effects.addEventListener('click', changeFilter);
+// Наложение эффектов
+effects.addEventListener('click', changeFilterHandler);
