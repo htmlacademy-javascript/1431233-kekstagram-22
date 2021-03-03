@@ -19,7 +19,7 @@ const imgUploadEffectLevel = document.querySelector('.img-upload__effect-level')
 const SCALE_LIMITS = {
   min: 25,
   max: 100,
-  step:25,
+  step: 25,
 };
 // Насыщенность по умолчанию
 const DEFAULT_EFFECT_LEVEL = 100;
@@ -41,8 +41,6 @@ const escPress = function (evt) {
 };
 // Открытие окна
 const openModal = function () {
-  //Сокрытие слайдера(Что бы не появлялся на "ОРИГИНАЛ" при повторном открытии)
-  imgUploadEffectLevel.classList.remove('hidden');
   photosUploadOverlay.classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
   document.addEventListener('keydown', escPress);
@@ -54,12 +52,11 @@ const closeModal = function () {
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', escPress);
   uploadPhotos.value = '';
-  sliderElement.classList.add('hidden');
   imageUploadPreview.className = 'effects__preview--none';
   imageUploadPreview.style = ''
   imgUploadEffectLevel.classList.add('hidden');
 };
-// Уменьшение масштаба изображения yнажатием на минус
+// Уменьшение масштаба изображения нажатием на минус
 const onMinusScaleClick = function () {
   let scale = parseInt(scaleControlValue.value, 10);
   if (scale <= SCALE_LIMITS.max && scale > SCALE_LIMITS.min) {
@@ -67,7 +64,7 @@ const onMinusScaleClick = function () {
   }
   changeImageScale(scale);
 };
-// Увеличение масштаба изображения yнажатием на плюс
+// Увеличение масштаба изображения нажатием на плюс
 const onPlusScaleClick = function () {
   let scale = parseInt(scaleControlValue.value, 10);
   if (scale >= SCALE_LIMITS.min && scale < SCALE_LIMITS.max) {
@@ -77,7 +74,7 @@ const onPlusScaleClick = function () {
 };
 // Функция изменения масштаба
 const changeImageScale = function (number) {
-  imageUploadPreview.style.transform = 'scale('+(number / 100) +')';
+  imageUploadPreview.style.transform = 'scale(' + (number / 100) + ')';
   scaleControlValue.value = number + '%';
 };
 // noUiSlider
@@ -87,11 +84,11 @@ window.noUiSlider.create(sliderElement, {
     max: 100,
   },
   start: DEFAULT_EFFECT_LEVEL,
-  step:1,
+  step: 1,
   connect: 'lower',
 });
 // Насыщенность эффекта
-const setNewEffectDepth = function(levelValue) {
+const setNewEffectDepth = function (levelValue) {
   const value = levelValue / DEFAULT_EFFECT_LEVEL;
   if (imageUploadPreview.className.match('effects__preview--')) {
     switch (imageUploadPreview.className) {
@@ -105,10 +102,10 @@ const setNewEffectDepth = function(levelValue) {
         imageUploadPreview.style.filter = 'invert(' + levelValue + '%)';
         break;
       case 'effects__preview--phobos':
-        imageUploadPreview.style.filter = 'blur('+ (MAX_EFFECTS_VALUES.phobos * value)+'px)';
+        imageUploadPreview.style.filter = 'blur(' + (MAX_EFFECTS_VALUES.phobos * value) + 'px)';
         break;
       case 'effects__preview--heat':
-        imageUploadPreview.style.filter = 'brightness(' + (MAX_EFFECTS_VALUES.heat[1] * value + MAX_EFFECTS_VALUES.heat[0])+')';
+        imageUploadPreview.style.filter = 'brightness(' + (MAX_EFFECTS_VALUES.heat[1] * value + MAX_EFFECTS_VALUES.heat[0]) + ')';
         break;
       default:
         imageUploadPreview.style.filter = '';
@@ -120,30 +117,30 @@ sliderElement.noUiSlider.on('update', (_, handle, unencoded) => {
   setNewEffectDepth(effectLevelValue.value);
 });
 // Наложение эффекта
-const changeFilterHandler = function(evt) {
+const changeFilterHandler = function (evt) {
   if (evt.target.matches('input[type="radio"]')) {
     imageUploadPreview.className = '';
     setDefaultDepth();
-    imageUploadPreview.className = 'effects__preview--'+ evt.target.value;
+    imageUploadPreview.className = 'effects__preview--' + evt.target.value;
     imageUploadPreview.style.transform = 'scale(1.00)';
     counterValue.value = DEFAULT_EFFECT_LEVEL + '%';
-    sliderElement.noUiSlider.updateOptions({start: 100});
+    sliderElement.noUiSlider.updateOptions({ start: 100 });
   }
 };
 // Глубина эффекта по умолчанию
-const setDefaultDepth = function() {
+const setDefaultDepth = function () {
   effectLevelValue.value = DEFAULT_EFFECT_LEVEL;
   imageUploadPreview.style.filter = '';
 };
-// Отображение слайдера (кроме эффекта "ОРИГИНАЛ")
+// Отображение слайдера (кроме эффекта 'ОРИГИНАЛ')
 effectsItem.forEach((item) => {
   item.addEventListener('click', () => {
-    sliderElement.classList.remove('hidden');
+    imgUploadEffectLevel.classList.remove('hidden');
   });
 });
-// Сокрытие слайдера на "ОРИГИНАЛ"
+// Сокрытие слайдера на 'ОРИГИНАЛ'
 effectsItemDefault.addEventListener('click', () => {
-  sliderElement.classList.add('hidden');
+  imgUploadEffectLevel.classList.add('hidden');
 });
 // Экспорт
 export {
