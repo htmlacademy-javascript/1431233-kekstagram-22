@@ -124,7 +124,7 @@ const changeFilterHandler = function (evt) {
     imageUploadPreview.className = 'effects__preview--' + evt.target.value;
     imageUploadPreview.style.transform = 'scale(1.00)';
     counterValue.value = DEFAULT_EFFECT_LEVEL + '%';
-    sliderElement.noUiSlider.updateOptions({ start: 100 });
+    sliderElement.noUiSlider.updateOptions({ start: DEFAULT_EFFECT_LEVEL });
   }
 };
 // Глубина эффекта по умолчанию
