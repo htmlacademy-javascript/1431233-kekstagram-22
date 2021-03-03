@@ -132,13 +132,13 @@ const setDefaultDepth = function () {
   effectLevelValue.value = DEFAULT_EFFECT_LEVEL;
   imageUploadPreview.style.filter = '';
 };
-// Отображение слайдера (кроме эффекта "ОРИГИНАЛ")
+// Отображение слайдера (кроме эффекта 'ОРИГИНАЛ')
 effectsItem.forEach((item) => {
   item.addEventListener('click', () => {
     imgUploadEffectLevel.classList.remove('hidden');
   });
 });
-// Сокрытие слайдера на "ОРИГИНАЛ"
+// Сокрытие слайдера на 'ОРИГИНАЛ'
 effectsItemDefault.addEventListener('click', () => {
   imgUploadEffectLevel.classList.add('hidden');
 });
