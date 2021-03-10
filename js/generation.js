@@ -53,4 +53,6 @@ const generateArrayPosts = function (amountPosts) {
   }
   return posts;
 }
-export {generateArrayPosts};
+export {generateArrayPosts, generateArrayComments};
+
+
