@@ -44,7 +44,6 @@ const openModal = function () {
   photosUploadOverlay.classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
   document.addEventListener('keydown', escPress);
-
 };
 // Закрытие окна
 const closeModal = function () {

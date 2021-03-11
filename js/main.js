@@ -1,5 +1,3 @@
-import {postList, generateGroupPosts} from './templatePost.js';
-import {generateArrayPosts} from './generation.js';
 import {
   uploadPhotos,
   uploadCancel,
@@ -12,8 +10,7 @@ import {
   effects,
   changeFilterHandler
 } from './uploadingPhotos.js';
-// Формируем ленту
-postList.appendChild(generateGroupPosts(generateArrayPosts(25)));
+import {load} from './server.js'
 // Открытие и закрытия окна редактирования нового фото
 uploadPhotos.addEventListener('change', function () {
   openModal();
@@ -27,3 +24,5 @@ scaleControlSmaller.addEventListener('click', onMinusScaleClick);
 scaleControlBigger.addEventListener('click', onPlusScaleClick);
 // Наложение эффектов
 effects.addEventListener('click', changeFilterHandler);
+// Загрузка данных с сервера
+load();
